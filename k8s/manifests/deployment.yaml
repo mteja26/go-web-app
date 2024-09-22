@@ -1,0 +1,23 @@
+# This is a deployement manifests file for simple web application
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gnew-go-web-app
+  labels:
+    app: new-go-web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: new-go-web-app
+  template:
+    metadata:
+      labels:
+        app: new-go-web-app
+    spec:
+      containers:
+      - name: new-go-web-app
+        image: teja4031/new-go-web-app:v1
+        ports:
+        - containerPort: 8080

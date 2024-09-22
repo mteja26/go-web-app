@@ -1,0 +1,18 @@
+# Ingress resource for the application
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: new-go-web-app
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: new-go-web-app.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/bar"
+        backend:
+          service:
+            name: new-go-web-app
+            port:
+              number: 80

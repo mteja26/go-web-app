@@ -1,0 +1,16 @@
+# Service file for application
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: new-go-web-app
+  labels:
+    app: new-go-web-app
+spec:
+  selector:
+    app: new-go-web-app
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
